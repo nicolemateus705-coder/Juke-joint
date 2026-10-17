@@ -9,6 +9,7 @@ FilaReproducao::FilaReproducao()
 void FilaReproducao::adicionarNoInicio(const Musica& musica) {
     if (!temAtual) {
         musicas.push_front(musica);
+        musicaAtual = musica;
         idAtual = musica.getId();
         posAtual = 0;
         temAtual = true;
@@ -18,6 +19,7 @@ void FilaReproducao::adicionarNoInicio(const Musica& musica) {
     bool selecaoValidaAntes = selecaoEstaNaFila();
     musicas.push_front(musica);
     if (!selecaoValidaAntes && musica.getId() == idAtual) {
+        musicaAtual = musica;
         posAtual = 0;
     } else {
         posAtual++;
@@ -27,6 +29,7 @@ void FilaReproducao::adicionarNoInicio(const Musica& musica) {
 void FilaReproducao::adicionarNoFim(const Musica& musica) {
     if (!temAtual) {
         musicas.push_back(musica);
+        musicaAtual = musica;
         idAtual = musica.getId();
         posAtual = 0;
         temAtual = true;
@@ -36,6 +39,7 @@ void FilaReproducao::adicionarNoFim(const Musica& musica) {
     bool selecaoValidaAntes = selecaoEstaNaFila();
     musicas.push_back(musica);
     if (!selecaoValidaAntes && musica.getId() == idAtual) {
+        musicaAtual = musica;
         posAtual = musicas.size() - 1;
     }
 }
@@ -54,10 +58,6 @@ void FilaReproducao::removerMusica(int idMusica) {
             ++pos;
         }
     }
-
-    if (temAtual && idAtual == idMusica) {
-        limparMusicaAtual();
-    }
 }
 
 bool FilaReproducao::contemMusica(int idMusica) const {
@@ -75,7 +75,8 @@ void FilaReproducao::avancar() {
         return;
     }
     posAtual = (posAtual + 1) % musicas.size();
-    idAtual = itNaPosicao(posAtual)->getId();
+    musicaAtual = *itNaPosicao(posAtual);
+    idAtual = musicaAtual.getId();
 }
 
 void FilaReproducao::voltar() {
@@ -86,14 +87,15 @@ void FilaReproducao::voltar() {
         return;
     }
     posAtual--;
-    idAtual = itNaPosicao(posAtual)->getId();
+    musicaAtual = *itNaPosicao(posAtual);
+    idAtual = musicaAtual.getId();
 }
 
 bool FilaReproducao::getMusicaAtual(Musica& saida) const {
-    if (!selecaoEstaNaFila()) {
+    if (!temAtual) {
         return false;
     }
-    saida = *itNaPosicao(posAtual);
+    saida = musicaAtual;
     return true;
 }
 

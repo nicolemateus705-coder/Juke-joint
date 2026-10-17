@@ -49,6 +49,9 @@ Biblioteca::Resultado Biblioteca::removerMusica(int id, FilaReproducao& fila) {
     }
 
     fila.removerMusica(id);
+    if (fila.getIdAtual() == id) {
+        fila.limparMusicaAtual();
+    }
     musicas.erase(it);
     return SUCESSO;
 }

@@ -28,6 +28,7 @@ private:
     bool selecaoEstaNaFila() const;
 
     std::list<Musica> musicas;
+    Musica musicaAtual;
     int idAtual;
     std::size_t posAtual;
     bool temAtual;
