@@ -14,7 +14,7 @@ As playlists armazenam referências às músicas cadastradas. A fila de reprodu�
 
 ## 3. O que o usuário pode fazer
 
-O usuário pode cadastrar músicas, consultar as músicas existentes e visualizar suas informações. Também pode criar, listar e excluir playlists, além de adicionar músicas cadastradas às playlists e remover músicas delas.
+O usuário pode cadastrar músicas, listar todas as músicas cadastradas e consultar os dados de uma música específica por meio de seu identificador numérico. Também pode criar, listar e excluir playlists, além de adicionar músicas cadastradas às playlists e remover músicas delas.
 
 O sistema permite adicionar músicas ao início ou ao final da fila de reprodução, remover músicas da fila, avançar e voltar entre as músicas e consultar qual música está selecionada como atual.
 
@@ -64,7 +64,9 @@ A música atual deve ser controlada separadamente da fila. As classes serão res
 
 Ao iniciar o sistema, o usuário pode cadastrar duas músicas informando título, artista, duração e álbum. O sistema gera automaticamente um identificador para cada música.
 
-Em seguida, o usuário pode criar uma playlist, adicionar uma das músicas cadastradas e visualizar as músicas da playlist. Depois, pode adicionar músicas ao início ou ao final da fila, consultar a música atual e avançar ou voltar entre as músicas de acordo com as regras definidas.
+Em seguida, o usuário pode listar todas as músicas cadastradas ou consultar uma música específica pelo seu identificador numérico. Também pode criar uma playlist, adicionar uma das músicas cadastradas e visualizar as músicas da playlist.
+
+Depois, pode adicionar músicas ao início ou ao final da fila, consultar a música atual e avançar ou voltar entre as músicas de acordo com as regras definidas.
 
 Se ainda não houver uma música atual, a primeira música adicionada à fila será selecionada automaticamente. O usuário também pode criar playlists com nomes iguais, pois cada playlist será tratada separadamente.
 
