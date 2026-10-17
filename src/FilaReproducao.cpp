@@ -51,13 +51,23 @@ void FilaReproducao::removerMusica(int idMusica) {
             it = musicas.erase(it);
         } else {
             ++it;
+            ++pos;
         }
-        ++pos;
     }
 
     if (temAtual && idAtual == idMusica) {
         limparMusicaAtual();
     }
+}
+
+bool FilaReproducao::contemMusica(int idMusica) const {
+    std::list<Musica>::const_iterator it = musicas.begin();
+    for (; it != musicas.end(); ++it) {
+        if (it->getId() == idMusica) {
+            return true;
+        }
+    }
+    return false;
 }
 
 void FilaReproducao::avancar() {

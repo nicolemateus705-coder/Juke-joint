@@ -13,6 +13,7 @@ public:
     void adicionarNoInicio(const Musica& musica);
     void adicionarNoFim(const Musica& musica);
     void removerMusica(int idMusica);
+    bool contemMusica(int idMusica) const;
 
     void avancar();
     void voltar();
