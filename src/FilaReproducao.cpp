@@ -54,6 +54,10 @@ void FilaReproducao::removerMusica(int idMusica) {
         }
         ++pos;
     }
+
+    if (temAtual && idAtual == idMusica) {
+        limparMusicaAtual();
+    }
 }
 
 void FilaReproducao::avancar() {
