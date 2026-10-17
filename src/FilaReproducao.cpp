@@ -1,5 +1,6 @@
 #include "FilaReproducao.hpp"
 
+#include <algorithm>
 #include <iterator>
 
 FilaReproducao::FilaReproducao()
@@ -61,13 +62,8 @@ void FilaReproducao::removerMusica(int idMusica) {
 }
 
 bool FilaReproducao::contemMusica(int idMusica) const {
-    std::list<Musica>::const_iterator it = musicas.begin();
-    for (; it != musicas.end(); ++it) {
-        if (it->getId() == idMusica) {
-            return true;
-        }
-    }
-    return false;
+    Musica prova(idMusica, "", "", 0, 0, "");
+    return std::find(musicas.begin(), musicas.end(), prova) != musicas.end();
 }
 
 void FilaReproducao::avancar() {

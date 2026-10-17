@@ -90,6 +90,7 @@ O projeto utiliza containers da Standard Template Library (STL) para armazenar e
 | `Playlist` | `std::list<int>` | Guarda os IDs das músicas na ordem em que foram adicionadas à playlist. |
 | `Playlist` | `std::set<int>` | Permite verificar se um ID já está na playlist e impedir músicas repetidas. |
 | `FilaReproducao` | `std::list<Musica>` | Armazena as músicas da fila e permite adicionar elementos no início ou no final, além de removê-los. |
+| `FilaReproducao` | `std::find` sobre `std::list<Musica>` | Procura uma música na fila usando o `operator==` da classe `Musica`, que compara os IDs. |
 
 ## Como usei a IA
 
